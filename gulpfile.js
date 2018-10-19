@@ -1,37 +1,37 @@
-const gulp = require('gulp'),
-  prettyError = require('gulp-prettyerror'),
-  sass = require('gulp-sass'),
-  autoprefixer = require('gulp-autoprefixer'),
-  rename = require('gulp-rename'),
-  cssnano = require('gulp-cssnano'),
-  uglify = require('gulp-uglify'),
-  eslint = require('gulp-eslint'),
-  browserSync = require('browser-sync'),
-  babel = require('gulp-babel'),
-  sourcemaps = require('gulp-sourcemaps');
+const gulp = require("gulp"),
+  prettyError = require("gulp-prettyerror"),
+  sass = require("gulp-sass"),
+  autoprefixer = require("gulp-autoprefixer"),
+  rename = require("gulp-rename"),
+  cssnano = require("gulp-cssnano"),
+  uglify = require("gulp-uglify"),
+  eslint = require("gulp-eslint"),
+  browserSync = require("browser-sync"),
+  babel = require("gulp-babel"),
+  sourcemaps = require("gulp-sourcemaps");
 
-gulp.task('sass', function(done) {
+gulp.task("sass", function(done) {
   gulp
-    .src('./scss/*.scss', { sourcemaps: true })
+    .src("./scss/*.scss", { sourcemaps: true })
     .pipe(prettyError())
     .pipe(sass())
     .pipe(
       autoprefixer({
-        browsers: ['last 2 versions']
+        browsers: ["last 2 versions"]
       })
     )
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./build/css'))
+    .pipe(gulp.dest("./build/css"))
     .pipe(cssnano())
-    .pipe(rename('style.min.css'))
-    .pipe(gulp.dest('./build/css'));
+    .pipe(rename("style.min.css"))
+    .pipe(gulp.dest("./build/css"));
 
   done();
 });
 
-gulp.task('lint', function() {
+gulp.task("lint", function() {
   return gulp
-    .src(['./js/*.js'])
+    .src(["./js/*.js"])
     .pipe(prettyError())
     .pipe(eslint())
     .pipe(eslint.format())
@@ -39,40 +39,40 @@ gulp.task('lint', function() {
 });
 
 gulp.task(
-  'scripts',
-  gulp.series('lint', function() {
+  "scripts",
+  gulp.series("lint", function() {
     return gulp
-      .src('./js/*.js')
+      .src("./js/*.js")
       .pipe(
         babel({
-          presets: ['env']
+          presets: ["env"]
         })
       )
       .pipe(uglify())
       .pipe(
         rename({
-          extname: '.min.js'
+          extname: ".min.js"
         })
       )
-      .pipe(gulp.dest('./build/js'));
+      .pipe(gulp.dest("./build/js"));
   })
 );
 
-gulp.task('browser-sync', function() {
+gulp.task("browser-sync", function() {
   browserSync.init({
     server: {
-      baseDir: './'
+      baseDir: "./"
     }
   });
 
   gulp
-    .watch(['build/css/*.css', 'build/js/*.js', 'index.html'])
-    .on('change', browserSync.reload);
+    .watch(["./build/css/*.css", "./build/js/*.js", "index.html"])
+    .on("change", browserSync.reload);
 });
 
-gulp.task('watch', function() {
-  gulp.watch('./js/*.js', gulp.series('scripts'));
-  gulp.watch('./scss/**/*.scss', gulp.series('sass'));
+gulp.task("watch", function() {
+  gulp.watch("./js/*.js", gulp.series("scripts"));
+  gulp.watch("./scss/**/*.scss", gulp.series("sass"));
 });
 
-gulp.task('default', gulp.parallel('browser-sync', 'watch'));
+gulp.task("default", gulp.parallel("browser-sync", "watch"));

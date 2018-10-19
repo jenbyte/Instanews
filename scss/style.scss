@@ -1,0 +1,141 @@
+@import "partials/normalize";
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/base";
+@import "partials/layout";
+@import "partials/reset";
+@import "partials/fonts";
+
+li {
+  flex: 0 1 100%;
+  @include tablet {
+    flex: 0 1 50%;
+  }
+  @include desktop {
+    flex: 0 1 25%;
+  }
+}
+
+html {
+  background: black;
+  font-size: 14px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  color: #fff;
+  height: 100vh;
+  font-family: "OpenSans-Light";
+}
+header {
+  padding: 2rem 1rem;
+  /* margin-bottom: 1rem; */
+  color: #fff;
+  margin: auto;
+}
+p {
+  font-size: 1rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+.site-header {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+  height: 85%;
+}
+.search {
+  display: flex;
+  flex-direction: column;
+}
+.bar {
+  max-width: 200px;
+  font-size: 16px;
+  margin: auto;
+}
+.logo {
+  flex-shrink: 1;
+  flex-basis: 25%;
+}
+.stories {
+  display: flex;
+  flex-flow: column wrap;
+}
+.snippets {
+  font-family: opensans-light;
+  font-size: 1rem;
+  color: #fff;
+  width: 50%;
+  min-width: 480px;
+}
+
+.copyright {
+  color: #c2c2c2;
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/*  TABLET   */
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+  .site-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 2rem 2rem;
+    max-width: 600px;
+  }
+  .logo {
+    max-width: 100%;
+    min-width: 150px;
+    height: auto;
+    flex-shrink: 1;
+    flex-basis: 25%;
+  }
+  .search {
+    align-self: left;
+  }
+
+  .copyright {
+    font-size: 0.9rem;
+    padding-bottom: 0;
+  }
+}
+
+/*  DESKTOP   */
+@media only screen and (min-width: 1000px) {
+  .site-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    /* text-align: left; */
+    margin-left: 0;
+    height: 75%;
+    padding: 0;
+    max-width: 1000px;
+  }
+  .logo {
+    max-width: 100%;
+    height: auto;
+    text-align: left;
+    align-self: left;
+  }
+  .copyright {
+    text-align: left;
+    font-size: 1rem;
+    padding: 2rem;
+  }
+}

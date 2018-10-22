@@ -1,3 +1,24 @@
 * {
   box-sizing: border-box;
 }
+
+html {
+  height: 100%;
+  background: black;
+  font-size: 14px;
+  @include tablet {
+    font-size: 16px;
+  }
+}
+body {
+  height: 100%;
+  color: $font-color;
+  font-family: "OpenSans-Light";
+}
+
+header {
+  padding: 2rem 0;
+  // margin-bottom: 1rem;
+  color: $font-color;
+  margin: auto;
+}

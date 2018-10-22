@@ -6,115 +6,162 @@
 @import "partials/reset";
 @import "partials/fonts";
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  background: black;
-  font-size: 14px;
-  @include tablet {
-    font-size: 16px;
-  }
-}
-
-body {
-  color: #fff;
-  height: 100vh;
-  font-family: "OpenSans-Light";
-}
-header {
-  padding: 2rem 1rem;
-  /* margin-bottom: 1rem; */
-  color: #fff;
-  margin: auto;
-}
 p {
   font-size: 1rem;
-  margin: 1rem 0;
   text-align: center;
+  font-family: "opensans-light";
+  margin-bottom: 1rem;
 }
-.site-header {
-  display: flex;
-  flex-flow: column wrap;
-  margin: auto;
-  height: 85%;
 
+.site-header {
+  margin: auto;
+  // height: 85%;
+  // max-width: 450px;
+  padding: 1rem;
   @include tablet {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
     padding: 2rem 2rem;
-    max-width: 600px;
+    // margin: auto;
+    // max-width: 400px;
   }
-
   @include desktop {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: flex-start;
-    margin-left: 0;
-    height: 75%;
-    padding: 0;
-    max-width: 1000px;
+    align-items: flex-start;
+    align-self: flex-start;
+    margin-left: 1rem;
+    // height: 75%;
+    padding: 2rem;
+  }
+}
+.header-active {
+  .logo {
+    width: 100px;
   }
 }
 .search {
   display: flex;
   flex-direction: column;
-
+  font-family: "opensans-light";
+  padding: 1rem;
+  padding-top: 1rem;
+  // margin: auto;
+  flex-shrink: 0;
   @include tablet {
-    align-self: left;
+    align-self: center;
+    justify-content: center;
+  }
+  @include desktop {
+    // justify-content: left;
+    // align-items: flex-start;
+    // align-content: left;
   }
 }
+#dropdown-menu,
 .menu {
-  max-width: 200px;
+  width: 120px;
   font-size: 16px;
+  font-weight: 500;
   margin: auto;
+  border: 1px cyan solid;
+  background: black;
+  color: $font-color;
 }
 .logo {
+  display: flex;
   flex-shrink: 1;
   flex-basis: 25%;
+  margin: auto;
   @include tablet {
     max-width: 100%;
     min-width: 150px;
-    height: auto;
+    // height: auto;
     flex-shrink: 1;
     flex-basis: 25%;
+    margin-right: 1rem;
+    margin: 0;
   }
   @include desktop {
     max-width: 100%;
     height: auto;
     text-align: left;
-    align-self: left;
+    justify-content: center;
+    align-items: center;
+    transition: top 2s, left 1s, border-radius 0.5s, background-color 0.5s;
   }
+}
+.loading {
+  width: 100px;
+  height: auto;
 }
 .stories {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
+  width: 100vw;
+  list-style: none;
+  a {
+    text-decoration: none;
+  }
+  div {
+    height: 50vh;
+    background-size: cover;
+    background-position: top center;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    @include tablet {
+      width: 50vw;
+      display: flex;
+      flex-direction: row;
+    }
+    @include desktop {
+      width: 25vw;
+    }
+
+    li {
+      display: flex;
+      flex-direction: row;
+    }
+    p {
+      text-align: left;
+      background: linear-gradient(rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0.6));
+      line-height: 1.25;
+      padding: 10px;
+      margin-bottom: 0;
+      height: auto;
+      color: $font-color;
+    }
+  }
 }
-.snippets {
-  font-family: opensans-light;
-  font-size: 1rem;
-  color: #fff;
-  width: 50%;
-  min-width: 480px;
-}
+// .snippets {
+//   font-family: "opensans-light";
+//   font-size: 1rem;
+//   color: $font-color;
+//   width: 50%;
+//   min-width: 480px;
+//   height: 25vh;
+// }
 
 .copyright {
   color: #c2c2c2;
   text-align: center;
+  margin-top: 1rem;
   margin-bottom: 0;
   padding-bottom: 0;
-
   @include tablet {
     font-size: 0.9rem;
     padding-bottom: 0;
   }
-
   @include desktop {
     text-align: left;
     font-size: 1rem;
     padding: 2rem;
+    padding-bottom: 0;
   }
 }

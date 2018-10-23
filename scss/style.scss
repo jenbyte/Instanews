@@ -6,58 +6,73 @@
 @import "partials/reset";
 @import "partials/fonts";
 
+.container {
+  @include flexed($direction: column, $align: null);
+  height: 100%;
+  width: 100%;
+}
 p {
   font-size: 1rem;
   text-align: center;
   font-family: "opensans-light";
-  margin-bottom: 1rem;
 }
 
 .site-header {
   margin: auto;
-  // height: 85%;
   // max-width: 450px;
   padding: 1rem;
+  width: 100%;
+  height: 100%;
   @include tablet {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 2rem;
+    @include flexed($wrap: nowrap);
+    padding: 2rem;
     // margin: auto;
     // max-width: 400px;
   }
   @include desktop {
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-self: flex-start;
+    @include flexed(row, flex-start, center, nowrap);
     margin-left: 1rem;
     // height: 75%;
-    padding: 2rem;
   }
 }
 .header-active {
+  @include flexed(row, flex-start, center, nowrap);
+  // align-content: flex-start;
+  @include tablet {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
   .logo {
-    width: 100px;
+    height: 80px;
+    width: auto;
+    margin: 0;
   }
 }
 .search {
   display: flex;
   flex-direction: column;
   font-family: "opensans-light";
+  font-size: 1.1rem;
   padding: 1rem;
   padding-top: 1rem;
   // margin: auto;
   flex-shrink: 0;
+  p {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    @include tablet {
+      font-size: 0.9rem;
+    }
+    @include desktop {
+      font-size: 1rem;
+    }
+  }
   @include tablet {
-    align-self: center;
+    align-items: flex-start;
     justify-content: center;
   }
   @include desktop {
-    // justify-content: left;
-    // align-items: flex-start;
-    // align-content: left;
+    align-items: flex-start;
   }
 }
 #dropdown-menu,
@@ -65,7 +80,6 @@ p {
   width: 120px;
   font-size: 16px;
   font-weight: 500;
-  margin: auto;
   border: 1px cyan solid;
   background: black;
   color: $font-color;
@@ -110,11 +124,7 @@ p {
     background-size: cover;
     background-position: top center;
     margin: auto;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    align-items: flex-end;
-
+    @include flexed($justify: flex-end, $align: flex-end);
     @include tablet {
       width: 50vw;
       display: flex;
@@ -139,29 +149,17 @@ p {
     }
   }
 }
-// .snippets {
-//   font-family: "opensans-light";
-//   font-size: 1rem;
-//   color: $font-color;
-//   width: 50%;
-//   min-width: 480px;
-//   height: 25vh;
-// }
 
 .copyright {
   color: #c2c2c2;
   text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 0;
-  padding-bottom: 0;
+  margin: 1.5rem 0;
+  // padding-bottom: 0;
   @include tablet {
     font-size: 0.9rem;
-    padding-bottom: 0;
   }
   @include desktop {
     text-align: left;
-    font-size: 1rem;
-    padding: 2rem;
-    padding-bottom: 0;
+    padding: 0 2rem;
   }
 }

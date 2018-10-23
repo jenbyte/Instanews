@@ -1,10 +1,12 @@
 $(document).ready(function() {
-  console.log("hi how are you?");
+  console.log("lsjdfk ");
   $(".loading").hide();
   $("#dropdown-menu").on("change", function() {
+    $();
     const selected = $(this).val();
     if (selected !== " ") {
     }
+    $("header").addClass("header-active");
     let url = `https://api.nytimes.com/svc/topstories/v2/${selected}.json`;
     url +=
       "?" +
@@ -18,12 +20,13 @@ $(document).ready(function() {
       .done(function(data) {
         $(".loading").show();
         $(".stories").empty();
+        // $(".logo img").css({ height: "50%", width: "50%" });
         $.each(data.results.slice(0, 12), function(key, value) {
           console.log(value.multimedia[4].url);
           $(".stories").append(
-            `<a href=${value.url}><li><div style="background-image: url(${
+            `<li><a href=${value.url}><div style="background-image: url(${
               value.multimedia[4].url
-            })">` + `<p>${value.abstract}</p></div></li></a>`
+            })">` + `<p>${value.abstract}</p></div></a></li>`
           );
         });
       }) // eo .done

@@ -1,4 +1,4 @@
-@import "partials/normalize";
+// @import "partials/normalize";
 @import "partials/variables";
 @import "partials/mixins";
 @import "partials/base";
@@ -7,7 +7,7 @@
 @import "partials/fonts";
 
 .container {
-  @include flexed($direction: column, $align: null);
+  @include flexed(column, space-around, null, nowrap);
   height: 100%;
   width: 100%;
 }
@@ -18,6 +18,7 @@ p {
 }
 
 .site-header {
+  @include flexed(column, space-between, space-between, nowrap);
   margin: auto;
   // max-width: 450px;
   padding: 1rem;
@@ -26,6 +27,9 @@ p {
   @include tablet {
     @include flexed($wrap: nowrap);
     padding: 2rem;
+    padding-left: 0;
+    margin-left: 0;
+    border: 0;
     // margin: auto;
     // max-width: 400px;
   }
@@ -35,22 +39,9 @@ p {
     // height: 75%;
   }
 }
-.header-active {
-  @include flexed(row, flex-start, center, nowrap);
-  // align-content: flex-start;
-  @include tablet {
-    justify-content: flex-start;
-    margin-left: 0;
-  }
-  .logo {
-    height: 80px;
-    width: auto;
-    margin: 0;
-  }
-}
+
 .search {
-  display: flex;
-  flex-direction: column;
+  @include flexed(column, center, center, nowrap);
   font-family: "opensans-light";
   font-size: 1.1rem;
   padding: 1rem;
@@ -71,11 +62,7 @@ p {
     align-items: flex-start;
     justify-content: center;
   }
-  @include desktop {
-    align-items: flex-start;
-  }
 }
-#dropdown-menu,
 .menu {
   width: 120px;
   font-size: 16px;
@@ -84,11 +71,32 @@ p {
   background: black;
   color: $font-color;
 }
+
+.header-active {
+  @include flexed(column, center, center, nowrap);
+  height: auto;
+  flex: 1 0 auto;
+  @include tablet {
+    @include flexed(row, flex-start, center, nowrap);
+    margin-left: 0;
+  }
+  .logo {
+    width: 100px;
+    height: auto;
+    @include tablet {
+      height: 80px;
+
+      // margin: 0;
+    }
+  }
+}
+
 .logo {
   display: flex;
   flex-shrink: 1;
   flex-basis: 25%;
-  margin: auto;
+  // margin: auto;
+  min-width: 150px;
   @include tablet {
     max-width: 100%;
     min-width: 150px;
@@ -108,8 +116,9 @@ p {
   }
 }
 .loading {
-  width: 100px;
+  width: 80px;
   height: auto;
+  align-self: center;
 }
 .stories {
   display: flex;
@@ -155,8 +164,8 @@ p {
   text-align: center;
   margin: 1.5rem 0;
   // padding-bottom: 0;
+  font-size: 0.9rem;
   @include tablet {
-    font-size: 0.9rem;
   }
   @include desktop {
     text-align: left;

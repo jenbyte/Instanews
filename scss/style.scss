@@ -23,11 +23,10 @@ p {
 .site-header {
   @include flexed(column, space-between, center, nowrap);
   margin: auto;
-  padding: 1rem;
+  padding: 12rem 1rem;
   width: 100%;
   @include tablet {
     @include flexed($wrap: nowrap);
-    // padding: 2rem;
     padding-left: 0;
     margin-left: 0;
     border: 0;
@@ -109,13 +108,12 @@ p {
 .loading {
   width: 80px;
   height: auto;
-  text-align: center;
 }
 .center-load {
   display: flex;
   flex-direction: column;
   img {
-    justify-content: center;
+    justify-content: flex-start;
     align-self: center;
   }
 }

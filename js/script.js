@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  console.log("test");
+  console.log("hiya");
   $(".loading").hide();
   $("#dropdown-menu").on("change", function() {
     $();
@@ -23,7 +23,9 @@ $(document).ready(function() {
         $.each(data.results.slice(0, 12), function(key, value) {
           console.log(value.multimedia[4].url);
           $(".stories").append(
-            `<li><a href=${value.url}><div style="background-image: url(${
+            `<li><a href=${
+              value.url
+            }><div class="snippet" style="background-image: url(${
               value.multimedia[4].url
             })">` + `<p>${value.abstract}</p></div></a></li>`
           );

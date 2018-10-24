@@ -8,7 +8,7 @@
 
 .container {
   @include flexed(column, space-around, null, nowrap);
-  height: 100%;
+  // height: 100%;
   width: 100%;
 }
 p {
@@ -17,13 +17,30 @@ p {
   font-family: "opensans-light";
 }
 
+.header-active {
+  @include flexed(column, center, center, nowrap);
+  height: auto;
+  flex: 1 0 auto;
+  @include tablet {
+    @include flexed(row, flex-start, center, nowrap);
+    margin-left: 0;
+  }
+  .logo {
+    width: 100px;
+    height: auto;
+    @include tablet {
+      height: 80px;
+      // margin: 0;
+    }
+  }
+}
 .site-header {
   @include flexed(column, space-between, space-between, nowrap);
   margin: auto;
   // max-width: 450px;
   padding: 1rem;
   width: 100%;
-  height: 100%;
+
   @include tablet {
     @include flexed($wrap: nowrap);
     padding: 2rem;
@@ -36,7 +53,6 @@ p {
   @include desktop {
     @include flexed(row, flex-start, center, nowrap);
     margin-left: 1rem;
-    // height: 75%;
   }
 }
 
@@ -63,6 +79,7 @@ p {
     justify-content: center;
   }
 }
+
 .menu {
   width: 120px;
   font-size: 16px;
@@ -70,25 +87,6 @@ p {
   border: 1px cyan solid;
   background: black;
   color: $font-color;
-}
-
-.header-active {
-  @include flexed(column, center, center, nowrap);
-  height: auto;
-  flex: 1 0 auto;
-  @include tablet {
-    @include flexed(row, flex-start, center, nowrap);
-    margin-left: 0;
-  }
-  .logo {
-    width: 100px;
-    height: auto;
-    @include tablet {
-      height: 80px;
-
-      // margin: 0;
-    }
-  }
 }
 
 .logo {
@@ -112,7 +110,6 @@ p {
     text-align: left;
     justify-content: center;
     align-items: center;
-    transition: top 2s, left 1s, border-radius 0.5s, background-color 0.5s;
   }
 }
 .loading {
@@ -151,7 +148,8 @@ p {
       text-align: left;
       background: linear-gradient(rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0.6));
       line-height: 1.25;
-      padding: 10px;
+      padding: 12px;
+      padding-left: 11px;
       margin-bottom: 0;
       height: auto;
       color: $font-color;

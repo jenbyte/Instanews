@@ -5,6 +5,7 @@
 html {
   background: #000;
   font-size: 14px;
+  height: 100%;
   @include tablet {
     font-size: 16px;
   }

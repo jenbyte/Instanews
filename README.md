@@ -15,7 +15,7 @@ To create a responsive design app that pulls articles from the New York Times AP
 
 - How to retrieve specific data via New York Times, Top Stories API using ajax 'GET' method
 - Using SCSS to style layout more effectively and organize them into partials
-- Using jQuery to design
+- Utilizing jQuery for some design
 
 ## **License**
 

@@ -19,14 +19,18 @@ $(document).ready(function() {
     })
       .done(function(data) {
         $(".stories").empty();
+        let filterdata = data.results.filter(function(value) {
+          return value.multimedia.length;
+        });
+        filterdata = filterdata.slice(0, 12);
+
         console.log(data);
-        $.each(data.results.slice(0, 12), function(key, value) {
+        $.each(filterdata, function(key, value) {
           $(".stories").append(
             `<li><a href=${value.url}><div style="background-image: url(${
               value.multimedia[4].url
             })">` + `<p>${value.abstract}</p></div></a></li>`
           );
-          $('footer').append(<'p class="copyright">&copy; Copyright 2019 INSTANEWS</p>');
         });
       }) // eo .done
       .fail(function(err) {

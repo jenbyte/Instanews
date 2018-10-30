@@ -6,10 +6,13 @@
 
 .container {
   @include flexed(column, space-between, center, nowrap);
-  height: 100%;
-  width: 100%;
+
+  // width: 100%;
   @include desktop {
     align-items: flex-start;
+  }
+  .copyright {
+    justify-content: flex-end;
   }
 }
 p {
@@ -19,9 +22,9 @@ p {
 }
 
 .site-header {
-  @include flexed(column, space-between, center, nowrap);
+  @include flexed(column, center, center, nowrap);
   margin: auto;
-  padding: 12rem 1rem;
+  height: 90vh;
   width: 100%;
   @include tablet {
     @include flexed($wrap: nowrap);
@@ -128,7 +131,7 @@ p {
     background-size: cover;
     background-position: top center;
     margin: auto;
-    @include flexed($justify: flex-end, $align: flex-end);
+    @include flexed($justify: stretch, $align: flex-end);
     @include tablet {
       width: 50vw;
       display: flex;
@@ -145,13 +148,13 @@ p {
     p {
       text-align: left;
       background: linear-gradient(rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0.6));
-      line-height: 1.3;
+      line-height: 1.4;
       padding: 12px;
-      padding-left: 1.5rem;
+      // padding-left: 1.5rem;
       margin-bottom: 0;
       height: auto;
       color: $font-color;
-      font-size: 0.93rem;
+      font-size: 0.95rem;
       @include tablet {
         padding-left: 1.2rem;
         padding-right: 11px;
@@ -168,12 +171,12 @@ li {
       font-size: 1rem;
       @include tablet {
         &:nth-child(odd) {
-          padding-left: 1rem;
-          padding-right: 11px;
+          padding-left: 1.5rem;
+          padding-right: 8px;
         }
         &:nth-child(even) {
-          padding-right: 1rem;
-          padding-left: 11px;
+          padding-right: 1.5rem;
+          padding-left: 8px;
         }
       }
       @include tablet {

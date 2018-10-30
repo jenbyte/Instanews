@@ -10,13 +10,16 @@ $(document).ready(function() {
       // (selected !== " ") {
       return;
     }
-    $stories.empty();
-    $loader.show();
+
     // get stories from the API
-    getStories(selected);
+    if (selected != " ") {
+      getStories(selected);
+    }
   }); // end on change
 
   function getStories(selected) {
+    $stories.empty();
+    $loader.show();
     $("header").addClass("header-active");
     let url = `https://api.nytimes.com/svc/topstories/v2/${selected}.json`;
     url +=
@@ -32,7 +35,7 @@ $(document).ready(function() {
         $stories.empty();
         // console.log(data);
         let filterArticle = data.results.filter(function(value) {
-          return value.multimedia.length;
+          return value.multimedia[4];
         });
         const sliceArticle = filterArticle.slice(0, 12);
         // $.each(data.results.slice(0, 12), function(key, value) {

@@ -1,8 +1,9 @@
-@import "partials/variables";
-@import "partials/mixins";
-@import "partials/layout";
-@import "partials/reset";
-@import "partials/fonts";
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/layout';
+@import 'partials/reset';
+@import 'partials/fonts';
+@import 'partials/base';
 
 .container {
   @include flexed(column, space-between, center, nowrap);
@@ -18,7 +19,7 @@
 p {
   font-size: 1rem;
   text-align: center;
-  font-family: "opensans-light";
+  font-family: $font-main;
 }
 
 .site-header {
@@ -56,7 +57,7 @@ p {
 
 .search {
   @include flexed(column, center, center, nowrap);
-  font-family: "opensans-light";
+  font-family: $font-main;
   font-size: 1.1rem;
   padding: 1rem;
   flex-shrink: 0;

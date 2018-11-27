@@ -1,10 +1,10 @@
 $(document).ready(function() {
-  console.log("hey");
+  console.log('hey');
 
-  const $loader = $(".loading");
-  const $stories = $(".stories");
+  const $loader = $('.loading');
+  const $stories = $('.stories');
   $loader.hide();
-  $("#dropdown-menu").on("change", function() {
+  $('#dropdown-menu').on('change', function() {
     const selected = $(this).val();
     if (!selected.length) {
       // (selected !== " ") {
@@ -12,7 +12,7 @@ $(document).ready(function() {
     }
 
     // get stories from the API
-    if (selected != " ") {
+    if (selected != ' ') {
       getStories(selected);
     }
   }); // end on change
@@ -20,16 +20,16 @@ $(document).ready(function() {
   function getStories(selected) {
     $stories.empty();
     $loader.show();
-    $("header").addClass("header-active");
+    $('header').addClass('header-active');
     let url = `https://api.nytimes.com/svc/topstories/v2/${selected}.json`;
     url +=
-      "?" +
+      '?' +
       $.param({
-        "api-key": "8397de144fcd4e17a0eadad84f2033cb"
+        'api-key': '8397de144fcd4e17a0eadad84f2033cb'
       });
     $.ajax({
       url: url,
-      method: "GET"
+      method: 'GET'
     })
       .done(function(data) {
         $stories.empty();
@@ -38,13 +38,7 @@ $(document).ready(function() {
           return value.multimedia[4];
         });
         const sliceArticle = filterArticle.slice(0, 12);
-        // $.each(data.results.slice(0, 12), function(key, value) {
-        //   $stories.append(
-        //     `<li><a href=${value.url}><div style="background-image: url(${
-        //       value.multimedia[4].url
-        //     })">` + `<p>${value.abstract}</p></div></a></li>`
-        //   );
-        // });
+
         for (let value of sliceArticle) {
           const { url, multimedia, abstract } = value;
           $stories.append(
@@ -54,11 +48,10 @@ $(document).ready(function() {
           );
         }
       }) // eo .done
-      .fail(function(err) {
-        console.log("fail function is working");
+      .fail(function() {
+        console.log('fail function is working');
         $stories.empty();
-        throw err;
-        // $stories.append("Sorry there was an error. Please try again.");
+        $stories.append('Sorry there was an error. Please try again.');
       }) // eo .fail
       .always(function() {
         $loader.hide();

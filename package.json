@@ -1,5 +1,5 @@
 {
-  "name": "Instamews",
+  "name": "Instanews",
   "version": "1.0.0",
   "description": "A starter package for running gulp to transpile es6 and compile scss. CSS lint is included as well as some basic es-linting.",
   "main": "gulpfile.js",

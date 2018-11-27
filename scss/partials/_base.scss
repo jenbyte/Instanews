@@ -1,7 +1,7 @@
 .container {
   @include flexed(column, space-between, center, nowrap);
-
   // width: 100%;
+
   @include desktop {
     align-items: flex-start;
   }

@@ -8,7 +8,7 @@ html {
 body {
   color: #fff;
   height: 100vh;
-  font-family: "OpenSans-Light";
+  font-family: 'OpenSans-Light';
 }
 header {
   padding: 2rem 1rem;
@@ -84,9 +84,9 @@ p {
     flex-shrink: 1;
     flex-basis: 25%;
   }
-  .search {
+  /* .search {
     align-self: left;
-  }
+  } */
 
   .copyright {
     font-size: 0.9rem;
@@ -113,7 +113,6 @@ p {
     max-width: 100%;
     height: auto;
     text-align: left;
-    align-self: left;
   }
   .copyright {
     text-align: left;

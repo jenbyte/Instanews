@@ -11,6 +11,28 @@ To create a responsive design app that pulls articles from the New York Times AP
 - **Built With:** Visual Studio Code, gulp, and node.js
 - **Reference:** New York Times, Top Stories: `developer.nytimes.com`
 
+## **Installation Instructions**
+
+Run the following commands in iterm/CLI to start the project:
+
+```
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ yarn run build
+$ yarn start
+
+# or
+npm run generate
+
+# generate static project
+$ yarn run generate
+```
+
 ## **Personal Learnings**
 
 - How to retrieve specific data via New York Times, Top Stories API using ajax 'GET' method
